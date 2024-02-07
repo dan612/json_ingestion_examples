@@ -22,8 +22,11 @@ Once both migrations have been run you can see the data at `/migration-posts` wh
 This approach has the advantage of requiring migrate API which pulls in a lot of helpful things,
 such as rollbacks, update old items, only importing new items...etc.
 ### Approach 2: Custom Drush Command
- 1. Create drush command to get images, get posts
- 2. Create view of drush command based posts
+Will import the first 100 images only, followed by 100 posts. 
+Also available for viewing on `/migration-posts` after import.
+```
+drush jie-posts
+```
 ### Approach 3: Views JSON Source
 #### Requirements
 - views_json_source
