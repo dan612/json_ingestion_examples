@@ -1,0 +1,54 @@
+id: images
+label: 'Import remote images.'
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'https://jsonplaceholder.typicode.com/photos'
+  item_selector: /
+  constants:
+    file_dest_dir: 'public://migrated-images/'
+    jpeg: '.jpeg'
+  ids:
+    image_id:
+      type: string
+  fields:
+    -
+      name: image_id
+      label: 'Image ID'
+      selector: /id
+    -
+      name: image_title
+      label: 'Image URL'
+      selector: /title
+    -
+      name: image_url
+      label: 'Image URL'
+      selector: /url
+process:
+  _prep_filename:
+    -
+      plugin: callback
+      callable: basename
+      source: image_url
+  filename:
+    plugin: concat
+    source:
+      - '@_prep_filename'
+      - constants/jpeg
+  _prep_file_destination:
+    plugin: concat
+    source:
+      - constants/file_dest_dir
+      - '@filename'
+  uri:
+    plugin: file_copy
+    source:
+      - image_url
+      - '@_prep_file_destination'
+  status:
+    plugin: default_value
+    default_value: 1
+  alt: image_title
+destination:
+  plugin: 'entity:file'

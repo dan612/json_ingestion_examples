@@ -1,0 +1,6 @@
+<?php
+
+function json_ingestion_examples_install() {
+  $mod_installer = \Drupal::service('module_installer');
+  $mod_installer->install(['migrate', 'migrate_plus', 'views_json_source']);
+}

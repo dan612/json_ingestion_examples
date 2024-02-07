@@ -1,0 +1,16 @@
+{
+  "name": "drupal/json_ingestion_examples",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Dan Chadwick",
+      "email": "dan.chadwick@acquia.com"
+    }
+  ],
+  "require": {
+    "drupal/core": "^9 || ^10",
+    "drupal/migrate_plus": "^6.0",
+    "drupal/views_json_source": "^1.4"
+  }
+}

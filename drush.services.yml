@@ -1,0 +1,5 @@
+services:
+  json_ingestion_examples.commands:
+    class: Drupal\json_ingestion_examples\Drush\Commands\JsonIngestionCommands
+    tags:
+      - { name: drush.command }

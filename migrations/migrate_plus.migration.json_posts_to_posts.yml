@@ -1,0 +1,37 @@
+id: json_posts_to_posts
+label: 'JSON Migrate - Posts to Posts'
+migration_group: migrate_posts
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  urls: 'https://jsonplaceholder.typicode.com/posts'
+  item_selector: /
+  ids:
+    post_id:
+      type: string
+  fields:
+    -
+      name: post_id
+      label: 'Post ID'
+      selector: /id
+    -
+      name: post_title
+      label: 'Post Title'
+      selector: /title
+    -
+      name: post_body
+      label: 'Post Body'
+      selector: /body
+process:
+  title: post_title
+  body/value: post_body
+  field_image:
+    plugin: migration_lookup
+    migration: images
+    source: post_id # this gets an image with the same ID as the post.
+
+destination:
+  plugin: 'entity:node'
+  default_bundle: post
+migration_dependencies: { }
