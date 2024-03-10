@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "drupal/core": "^9 || ^10",
+    "drupal/core": "^9 || ^10 || ^11",
     "drupal/migrate_plus": "^6.0",
     "drupal/views_json_source": "^1.4"
   }
