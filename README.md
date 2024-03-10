@@ -27,13 +27,6 @@ Also available for viewing on `/migration-posts` after import.
 ```
 drush jie-posts
 ```
-### Approach 3: Views JSON Source
-#### Requirements
-- views_json_source
-
-Make sure `views_json_source` module is included in your codebase.
-Then visit `/views-json-source` after enabling this module which is a preconfigured view of titles and body fields from external JSON.
-
-### Approach 4: Javascript Only
+### Approach 3: Javascript Only
  1. Attach a javascript library to a page
  2. Fetch the API data and render it all client side
