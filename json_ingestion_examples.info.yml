@@ -2,8 +2,7 @@ name: JSON Ingestion Examples
 type: module
 package: custom
 description: 'Ways to import JSON data to Drupal'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 dependencies:
   - drupal:migrate
   - drupal:migrate_plus
-  - drupal:views_json_source
